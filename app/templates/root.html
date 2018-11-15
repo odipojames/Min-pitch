@@ -1,0 +1,40 @@
+<!-- {% extends 'base.html' %} -->
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/root.css')}}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="">
+  <a class="btn btn-success btn-md" href="/new-pitch">Write Pitch</a>
+</div>
+
+<div class="container-fluid">
+  <div class="card-deck">
+    <a class="card ttb"  href="/pitch/business">
+      <img class="card-img-top" src="/static/images/business.jpeg" alt="business">
+      <div class="card-body">
+        <h5>Busines Pitches</h5>
+      </div>
+    </a>
+
+    <a class="card ttb"  href="/pitch/pick-up">
+      <img class="card-img-top" src="/static/images/pick-up.jpeg" alt="pick-up">
+      <div class="card-body">
+        <h5>Pick-up lines</h5>
+      </div>
+    </a>
+
+    <a class="card ttb"  href="/pitch/interview">
+      <img class="card-img-top" src="/static/images/interview.jpeg" alt="interview">
+      <div class="card-body">
+        <h5>Job-interview Pitches</h5>
+      </div>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

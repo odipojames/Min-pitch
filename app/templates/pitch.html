@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for c in category [::-1] %}
+<div class="container-fluid">
+<div class="card-deck">
+  <div class="card">
+  <div class="card-title">
+    <h5>{{c.category}}</h5>
+  </div>
+  <div class="card-body">
+    <p>{{c.pitch}}</p>
+    <p>written by {{c.username}}</p>
+    <a href="/comment/{{c.id}}">View Comments</a>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-primary btn-md" href="/new_comment/{{c.id}}">Add Comment</a>
+  </div>
+</div>
+
+</div>
+</div>
+
+{% endfor %}
+{% endblock %}
