@@ -1,24 +1,27 @@
 import os
 
 class Config:
-
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/watchlist'
-    
+    '''
+    parent class
+    '''
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/pitch'
 
 class ProdConfig(Config):
+    '''
+    production configurations child class
+    '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
-
-
-class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/watchlist_test'
-
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/watchlist'
+    '''
+    development configuration child class
+    '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/pitch'
+
     DEBUG = True
 
 config_options = {
-'development':DevConfig,
-'production':ProdConfig,
-'test':TestConfig
+ 'development': DevConfig,
+ 'production': ProdConfig
 }
