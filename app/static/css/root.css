@@ -1,7 +1,15 @@
-.root{
+.card root{
   color: black;
 }
-.root.hover{
+.card root:hover{
   text-decoration: underline;
   color: orange;
+}
+
+#img{
+  width: 200px;height: 150px;
+}
+
+body{
+  background-color: blue;
 }
