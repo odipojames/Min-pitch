@@ -2,20 +2,26 @@ import os
 
 class Config:
     '''
-    General configuration parent class
+    parent class
     '''
-    pass
-
-
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/pitch'
 
 class ProdConfig(Config):
-    pass
-
+    '''
+    production configurations child class
+    '''
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class DevConfig(Config):
+    '''
+    development configuration child class
+    '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://odipo:110P05124hh@localhost/pitch'
+
     DEBUG = True
 
 config_options = {
-'development':DevConfig,
-'production':ProdConfig
+ 'development': DevConfig,
+ 'production': ProdConfig
 }
