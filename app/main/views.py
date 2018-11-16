@@ -1,14 +1,14 @@
-from flask import render_template
+from flask import render_template,redirect
 from . import main
 
 
 
 
 @main.route('/')
-def index():
+def root():
 
     '''
     main page view
     '''
-    title = 'Pitches'
-    return render_template('index.html',title = title)
+    message= 'Pitches'
+    return render_template('root.html',message = message)
